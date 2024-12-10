@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import WaterLog from './components/WaterLog';
@@ -23,9 +23,32 @@ interface HistoryEntry {
 }
 
 function App() {
-  const [goal, setGoal] = useState<number>(2000); // Meta diaria por defecto (ml)
-  const [current, setCurrent] = useState<number>(0);
-  const [history, setHistory] = useState<HistoryEntry[]>([]);
+  const [goal, setGoal] = useState<number>(() => {
+    const savedGoal = localStorage.getItem('goal');
+    return savedGoal ? Number(savedGoal) : 2000; // Meta diaria por defecto (ml)
+  });
+
+  const [current, setCurrent] = useState<number>(() => {
+    const savedCurrent = localStorage.getItem('current');
+    return savedCurrent ? Number(savedCurrent) : 0;
+  });
+
+  const [history, setHistory] = useState<HistoryEntry[]>(() => {
+    const savedHistory = localStorage.getItem('history');
+    return savedHistory ? JSON.parse(savedHistory) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem('goal', goal.toString());
+  }, [goal]);
+
+  useEffect(() => {
+    localStorage.setItem('current', current.toString());
+  }, [current]);
+
+  useEffect(() => {
+    localStorage.setItem('history', JSON.stringify(history));
+  }, [history]);
 
   const handleAddWater = (amount: number) => {
     const newEntry = { date: new Date().toLocaleDateString(), amount };

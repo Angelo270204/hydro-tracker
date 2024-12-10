@@ -16,6 +16,10 @@ function WaterLog({ onAddWater }: WaterLogProps) {
     }
   };
 
+  const handleAddFixedAmount = (fixedAmount: number) => {
+    onAddWater(fixedAmount);
+  };
+
   return (
     <div className="water-log">
       <form onSubmit={handleSubmit}>
@@ -29,6 +33,12 @@ function WaterLog({ onAddWater }: WaterLogProps) {
         />
         <button type="submit">Añadir</button>
       </form>
+      <div className="fixed-buttons">
+        <button onClick={() => handleAddFixedAmount(250)}>Añadir 250 ml</button>
+        <button onClick={() => handleAddFixedAmount(500)}>Añadir 500 ml</button>
+        <button onClick={() => handleAddFixedAmount(750)}>Añadir 750 ml</button>
+        <button onClick={() => handleAddFixedAmount(1000)}>Añadir 1000 ml</button>
+      </div>
     </div>
   );
 }
