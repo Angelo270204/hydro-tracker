@@ -1,8 +1,8 @@
-
 import '../styles/History.css';
 
 interface HistoryEntry {
   date: string;
+  time: string; // Añadir la propiedad time
   amount: number;
 }
 
@@ -17,7 +17,7 @@ function History({ history }: HistoryProps) {
       <ul>
         {history.map((entry, index) => (
           <li key={index}>
-            {entry.date}: {entry.amount} ml
+            {entry.date} {entry.time}: {entry.amount} ml
           </li>
         ))}
       </ul>

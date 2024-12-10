@@ -29,8 +29,17 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  margin-bottom: 8px;
 }
 
 .goal-setter button:hover {
   background-color: darkcyan;
+}
+
+.reset-button {
+  background-color: red;
+}
+
+.reset-button:hover {
+  background-color: darkred;
 }

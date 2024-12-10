@@ -1,10 +1,12 @@
 import { useState } from 'react';
-import '../styles/GoalSetter.css'
+import '../styles/GoalSetter.css';
+
 interface GoalSetterProps {
   onSetGoal: (goal: number) => void;
+  onReset: () => void;
 }
 
-function GoalSetter({ onSetGoal }: GoalSetterProps) {
+function GoalSetter({ onSetGoal, onReset }: GoalSetterProps) {
   const [goal, setGoal] = useState<string>('');
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -28,6 +30,7 @@ function GoalSetter({ onSetGoal }: GoalSetterProps) {
         />
         <button type="submit">Establecer Meta</button>
       </form>
+      <button onClick={onReset} className="reset-button">Reiniciar Meta</button>
     </div>
   );
 }

@@ -19,6 +19,7 @@ import './styles/Navbar.css';
 
 interface HistoryEntry {
   date: string;
+  time: string;
   amount: number;
 }
 
@@ -51,13 +52,27 @@ function App() {
   }, [history]);
 
   const handleAddWater = (amount: number) => {
-    const newEntry = { date: new Date().toLocaleDateString(), amount };
+    const now = new Date();
+    const newEntry = {
+      date: now.toLocaleDateString(),
+      time: now.toLocaleTimeString(),
+      amount,
+    };
     setHistory([...history, newEntry]);
     setCurrent((prev) => prev + amount);
   };
 
   const handleSetGoal = (newGoal: number) => {
     setGoal(newGoal);
+  };
+
+  const handleReset = () => {
+    setGoal(2000); // Restablecer la meta diaria por defecto
+    setCurrent(0); // Restablecer el consumo actual
+    setHistory([]); // Restablecer el historial
+    localStorage.removeItem('goal');
+    localStorage.removeItem('current');
+    localStorage.removeItem('history');
   };
 
   return (
@@ -80,7 +95,7 @@ function App() {
           element={
             <div className="app">
               <Navbar />
-              <GoalSetter onSetGoal={handleSetGoal} />
+              <GoalSetter onSetGoal={handleSetGoal} onReset={handleReset} />
               <Footer />
             </div>
           }
