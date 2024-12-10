@@ -1,0 +1,36 @@
+.water-log {
+  padding: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.water-log form {
+  display: flex;
+  flex-direction: column;
+}
+
+.water-log label {
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.water-log input {
+  padding: 8px;
+  margin-bottom: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.water-log button {
+  padding: 8px;
+  background-color: teal;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.water-log button:hover {
+  background-color: darkcyan;
+}

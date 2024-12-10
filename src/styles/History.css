@@ -1,0 +1,24 @@
+.history {
+  padding: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.history h2 {
+  margin-bottom: 8px;
+}
+
+.history ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.history li {
+  padding: 8px;
+  border-bottom: 1px solid #ccc;
+}
+
+.history li:last-child {
+  border-bottom: none;
+}

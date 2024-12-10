@@ -1,0 +1,36 @@
+.goal-setter {
+  padding: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.goal-setter form {
+  display: flex;
+  flex-direction: column;
+}
+
+.goal-setter label {
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.goal-setter input {
+  padding: 8px;
+  margin-bottom: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.goal-setter button {
+  padding: 8px;
+  background-color: teal;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.goal-setter button:hover {
+  background-color: darkcyan;
+}
