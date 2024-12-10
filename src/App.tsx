@@ -7,6 +7,7 @@ import GoalSetter from './components/GoalSetter';
 import History from './components/History';
 import Footer from './components/Footer';
 import Login from './components/Login';
+import Navbar from './components/Navbar';
 import './App.css';
 import './styles/GoalSetter.css';
 import './styles/WaterLog.css';
@@ -14,7 +15,7 @@ import './styles/ProgressBar.css';
 import './styles/History.css';
 import './styles/Footer.css';
 import './styles/Header.css';
-import './styles/Login.css';
+import './styles/Navbar.css';
 
 interface HistoryEntry {
   date: string;
@@ -44,10 +45,38 @@ function App() {
           path="/app"
           element={
             <div className="app">
+              <Navbar />
               <Header />
-              <GoalSetter onSetGoal={handleSetGoal} />
               <ProgressBar current={current} goal={goal} />
+              <Footer />
+            </div>
+          }
+        />
+        <Route
+          path="/goal"
+          element={
+            <div className="app">
+              <Navbar />
+              <GoalSetter onSetGoal={handleSetGoal} />
+              <Footer />
+            </div>
+          }
+        />
+        <Route
+          path="/log"
+          element={
+            <div className="app">
+              <Navbar />
               <WaterLog onAddWater={handleAddWater} />
+              <Footer />
+            </div>
+          }
+        />
+        <Route
+          path="/history"
+          element={
+            <div className="app">
+              <Navbar />
               <History history={history} />
               <Footer />
             </div>
